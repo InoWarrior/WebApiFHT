@@ -60,9 +60,9 @@ builder.Services.AddScoped<IUserContextService, UserContextService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<FHTSeeder>();
 
-builder.Services.AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>();
-builder.Services.AddScoped<IAuthorizationHandler, ResourceOperationRequirementHandler>();
-builder.Services.AddScoped<IAuthorizationHandler, CreatedMultipleCompanyRequirementHandler>();
+builder.Services.AddTransient<IAuthorizationHandler, MinimumAgeRequirementHandler>();
+builder.Services.AddTransient<IAuthorizationHandler, ResourceOperationRequirementHandler>();
+//builder.Services.AddTransient<IAuthorizationHandler, CreatedMultipleCompanyRequirementHandler>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IWebApiFHTService, FHTService>();

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApiFHT.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace WebApiFHT
 {
@@ -22,6 +24,11 @@ namespace WebApiFHT
         {
             if (_dbContext.Database.CanConnect())
             {
+                var pendingMigrations = _dbContext.Database.GetPendingMigrations();
+                if (pendingMigrations != null && pendingMigrations.Any())
+                {
+                    _dbContext.Database.Migrate();
+                }
                 if (!_dbContext.Roles.Any())
                 {
                     var roles = GetRoles();

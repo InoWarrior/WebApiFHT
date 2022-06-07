@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApiFHT.Entities;
 
@@ -11,9 +12,10 @@ using WebApiFHT.Entities;
 namespace WebApiFHT.Migrations
 {
     [DbContext(typeof(FHTDbContext))]
-    partial class FHTDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220602110811_ ErrorMigaton")]
+    partial class ErrorMigaton
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,9 +88,6 @@ namespace WebApiFHT.Migrations
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
-
-                    b.Property<string>("Piotr")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

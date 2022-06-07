@@ -48,7 +48,7 @@ namespace WebApiFHT.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = "AtLeast20")]
+        [Authorize(Policy = "CreatedAtLeast2Company")]
         public ActionResult<IEnumerable<FhtDto>> GetAll()
         {
            
